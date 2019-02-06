@@ -1,5 +1,4 @@
 import subprocess
-import platform
 import os
 
 from src.commit import commit
@@ -22,14 +21,13 @@ while True:
     add = subprocess.Popen(r'src\add\add.sh',shell=True)
     add.wait()
     print(Caching_changes_finish)
-    if platform.system() == 'Windows':
-        print(Please_select_the_type_of_changes_to_be_submitted)
-        print('1.fix bugs')
-        choose = input()
-        if choose == '1':
-            print(Please_enter_the_reasons_for_submission)
-            commit.fix_bugs()
-        commits = subprocess.Popen(r'src\commit\commit.sh',shell=True)
-        commits.wait()
-        push = subprocess.Popen(r'src\push\push.sh',shell=True)
-        push.wait()
+    print(Please_select_the_type_of_changes_to_be_submitted)
+    print('1.fix bugs')
+    choose = input()
+    if choose == '1':
+        print(Please_enter_the_reasons_for_submission)
+        commit.fix_bugs()
+    commits = subprocess.Popen(r'src\commit\commit.sh',shell=True)
+    commits.wait()
+    push = subprocess.Popen(r'src\push\push.sh',shell=True)
+    push.wait()
