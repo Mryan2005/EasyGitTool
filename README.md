@@ -1,1 +1,2 @@
-# EasyGitUpdate
+# EasyGit
+- ##### settings can 
