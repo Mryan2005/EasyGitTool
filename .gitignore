@@ -1,2 +1,2 @@
 *.pyc
-src/push/push.sh
+src/commit/commit.sh
