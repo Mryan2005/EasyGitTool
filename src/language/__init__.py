@@ -1,1 +1,1 @@
-from src.language import *
+from src.language import zhcn
