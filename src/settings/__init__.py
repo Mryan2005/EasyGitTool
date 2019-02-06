@@ -1,1 +1,1 @@
-from src.settings import settings
+from src.settings import setting

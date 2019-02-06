@@ -1,13 +1,11 @@
 import subprocess
 import platform
 import os
-from src.language import *
+from src.language import zhcn
 from src.push import push
 # ============================================ #
-
 Caching_changes = zhcn.Caching_changes
-
-
+Caching_changes_finish = zhcn.Caching_changes_finish
 # ============================================ #
 print(Caching_changes)
 add = subprocess.Popen(r'src\add\add.sh',shell=True)
