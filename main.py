@@ -1,5 +1,6 @@
 import subprocess
 import os
+import time
 from src.commit import commit
 from src.settings import setting
 def main():
@@ -17,15 +18,20 @@ def main():
         commit.update()
         update()
     elif choose == '3':
-        os._exit()
+        os._exit(0)
     else:
         main()
 # ============================================ #
 def update():
+    print(in_commit)
     commits = subprocess.Popen(r'src\commit\commit.sh',shell=True)
     commits.wait()
+    print(commit_finish)
+    time.sleep(1)
+    print(in_push)
     push = subprocess.Popen(r'src\push\push.sh',shell=True)
     push.wait()
+    print(push_finish)
     os.remove(r'src\commit\commit.sh')
     main()
 # ============================================ #
@@ -38,6 +44,10 @@ try:
     Caching_changes_finish = zhcn.Caching_changes_finish
     Please_select_the_type_of_changes_to_be_submitted = zhcn.Please_select_the_type_of_changes_to_be_submitted
     Please_enter_the_reasons_for_submission = zhcn.Please_enter_the_reasons_for_submission
+    commit_finish = zhcn.commit_finish
+    in_commit = zhcn.in_commit
+    in_push = zhcn.in_push
+    push_finish = zhcn.push_finish
 except ImportError:
     pass
 # ============================================ #

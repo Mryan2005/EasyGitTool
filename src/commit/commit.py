@@ -20,5 +20,6 @@ def update():
     sh.write(reason)
     sh.write("'")
     sh.close()
+
 if __name__ == "__main__":
     fix_bugs()
