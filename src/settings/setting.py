@@ -1,1 +1,1 @@
-language = 'zhcn'
+language = 'zh-cn'

@@ -1,1 +1,1 @@
-from src.commit import commit
+from src.commit import *
