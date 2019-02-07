@@ -2,8 +2,7 @@ language: python
 python:
 - 3.6
 before_install:
-- openssl aes-256-cbc -K $encrypted_17e6a6a42d6f_key -iv $encrypted_17e6a6a42d6f_iv
-  -in .pypirc.enc -out .pypirc -d
+- openssl aes-256-cbc -K $encrypted_17e6a6a42d6f_key -iv $encrypted_17e6a6a42d6f_iv -in .pypirc.enc -out .pypirc -d
 - pip install --upgrade pyflakes
 script:
 - pyflakes main.py
