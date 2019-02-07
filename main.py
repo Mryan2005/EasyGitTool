@@ -33,6 +33,7 @@ def update():
     push.wait()
     print(push_finish)
     os.remove(r'src\commit\commit.sh')
+    time.sleep(3)
     main()
 # ============================================ #
 language = setting.language
