@@ -1,3 +1,5 @@
 *.pyc
 src/commit/commit.sh
-.pypirc
+dist/
+EasyGitTool.egg-info/
+build/
