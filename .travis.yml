@@ -5,6 +5,7 @@ env:
   global:
     secure: DKTpan08cTE7vxB1z2QYkpEz+PYaAhfQ8lARCZbH24QUA7/I8k/wBy5ohe+nQfbXj7p3cYwuVq8j0iBNlrl4l+u+TMIsNGpX3NgC1E9np2+1F0PitQ+Qe6aXyni8ti6YR8YnxisU/gT8PtUYU+nS2iH/XZ7Yx5dbjqv2sn7Rn9veRGOj3bWQIgzVdr3bbVtUmtRQfSgG9M3eBbSfb+I9Z9bIBkzf/huO4jiBEGu+ft3FdnsKOaQjrfn/mT6Nkd2WWnpAww/rFIBuDJjMGk7h8hoCvBxyP+enNenmgnGArpj0skM9+RhDGLNWE/4yFUt5dqqBP3/d9j95zWVEhcTYRXWVFPfNxvGQJduI5DdnVgjfCfPMW/FNxRq/R/XP4UlRUgae+ycHPcKkps4diVVpwcIzuGhJzFOXJUOopZ5l8gWAuNlFWtdWivYHfTbFp/A8SqnOohSVidh5A3EX9uvw9UvgyzSF70pUk+QEIgxFxRiYuArKlU7WmZVhChLtiXD8iBKTHwxQ+4zk7NePvohQxJ3idxtRCtDkqNtE4StWbOkx4+zsilK2dVBZpAJL9YtQetVesMghHRZw+LyHtj/SSyXlahHepWqWbPGyVIVKFXpcc/hZoL/hNJQcFbrcdgHSc3LRMFMj6HhZPc/K5DG3yWaLI3HWYP3bmTBOeiQSEug=
 before_install:
+- openssl version
 - echo $.pypirc-password | gpg --passphrase-fd 0 .pypirc.gpg
 - pip install --upgrade pyflakes
 script:
