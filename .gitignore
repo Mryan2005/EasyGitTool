@@ -3,5 +3,4 @@ src/commit/commit.sh
 dist/
 EasyGitTool.egg-info/
 build/
-src/settings
 src/settings/
