@@ -2,7 +2,12 @@ import subprocess
 import os
 import time
 from src.commit import commit
-from src.settings import setting
+if os.path.exists(r'src\settings\setting.py'):
+    from src.settings import setting
+else:
+    setting = open(r'src\settings\setting.py', "w+")
+    setting.write("language == 'zh-cn'")
+    setting.close()
 def main():
     print(Please_select_the_type_of_changes_to_be_submitted)
     print('1.fix bugs')
