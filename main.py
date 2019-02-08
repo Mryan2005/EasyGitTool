@@ -18,6 +18,10 @@ def main():
         commit.update()
         update()
     elif choose == '3':
+        print(Please_enter_the_reasons_for_submission)
+        commit.delete()
+        update()
+    elif choose == '4':
         os._exit(0)
     else:
         main()

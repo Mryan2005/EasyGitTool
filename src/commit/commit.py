@@ -20,6 +20,16 @@ def update():
     sh.write(reason)
     sh.write("'")
     sh.close()
-
+def delete():
+    reason = input()
+    if reason == '':
+        command = "git commit -m 'delete"
+    else:
+        command = "git commit -m 'delete: "
+    sh = open(r"src\commit\commit.sh", "w+")
+    sh.write(command)
+    sh.write(reason)
+    sh.write("'")
+    sh.close()
 if __name__ == "__main__":
     fix_bugs()
