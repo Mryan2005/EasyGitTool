@@ -3,6 +3,7 @@ python:
 - 3.6
 before_install:
 - pip install --upgrade pyflakes
+- git stash --all
 script:
 - pyflakes main.py
 deploy:
