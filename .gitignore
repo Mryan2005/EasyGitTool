@@ -4,3 +4,4 @@ dist/
 EasyGitTool.egg-info/
 build/
 src/settings/
+.vscode/
