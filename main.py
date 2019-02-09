@@ -2,13 +2,15 @@ import subprocess
 import os
 import time
 from src.commit import commit
+from src.version import version
 from src.settings import setting
-import update
+from src.InspectionCenter import InspectionCenter
 def main():
     print(Please_select_the_type_of_changes_to_be_submitted)
     print('1.fix bugs')
     print('2.update')
-    print('3.exit')
+    print('3.delete')
+    print('4.exit')
     choose = input()
     if choose == '1':
         print(Please_enter_the_reasons_for_submission)
@@ -22,6 +24,8 @@ def main():
         print(Please_enter_the_reasons_for_submission)
         commit.delete()
         update()
+    elif choose == 'version':
+        print('system-core:',system_core)
     elif choose == '4':
         os._exit(0)
     else:
@@ -41,6 +45,7 @@ def update():
     time.sleep(3)
     main()
 # ============================================ #
+system_core = version.main
 language = setting.language
 if language == 'zh-cn':
     from src.language import zhcn
