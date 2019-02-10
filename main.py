@@ -25,6 +25,8 @@ def menu():
         print('')
     elif choose == '3':
         print('EasyGitTool-cil:',EasyGitTool_cil)
+        time.sleep(1)
+        menu()
     else:
         menu()
 def update_loding():
@@ -47,7 +49,17 @@ def update_loding():
         commit.delete()
         update()
     elif choose == '4':
-        os._exit(0)
+        while True:
+            print(Are_you_sure,'|yes or no|')
+            choose = input()
+            if choose == 'yes':
+                menu()
+            elif choose == 'no':
+                update_loding()
+            else:
+                print(paramete_error)
+                pass
+                time.sleep(1)
     else:
         update_loding()
 # ============================================ #
@@ -82,6 +94,8 @@ try:
     hi_I_am_noder = zhcn.hi_I_am_noder
     Can_I_help_you = zhcn.Can_I_help_you
     please_tell_me_How_to_do_it = zhcn.please_tell_me_How_to_do_it
+    Are_you_sure = zhcn.Are_you_sure
+    paramete_error = zhcn.paramete_error
 except ImportError:
     pass
 # ============================================ #
