@@ -7,8 +7,10 @@ from src.settings import setting
 from src.InspectionCenter import InspectionCenter
 def menu():
     print(hi_I_am_noder)
+    time.sleep(0.5)
     print(Can_I_help_you)
-    print(can_you_tell_me_please_How_to_do_it)
+    time.sleep(0.5)
+    print(please_tell_me_How_to_do_it)
     print('1.push the codes to Web')
     print('2.update')
     print('3.version')
@@ -61,7 +63,7 @@ def update():
     print(push_finish)
     os.remove(r'src\commit\commit.sh')
     time.sleep(3)
-
+    
 # ============================================ #
 EasyGitTool_cil = version.EasyGitTool_cil
 language = setting.language
@@ -79,7 +81,7 @@ try:
     push_finish = zhcn.push_finish
     hi_I_am_noder = zhcn.hi_I_am_noder
     Can_I_help_you = zhcn.Can_I_help_you
-    can_you_tell_me_please_How_to_do_it = zhcn.can_you_tell_me_please_How_to_do_it
+    please_tell_me_How_to_do_it = zhcn.please_tell_me_How_to_do_it
 except ImportError:
     pass
 # ============================================ #
