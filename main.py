@@ -14,6 +14,7 @@ def menu():
     print('1.push the codes to Web')
     print('2.update')
     print('3.version')
+    print('4.exit')
     choose_2 = input()
     if choose_2 == '1':
         print(Caching_changes)
@@ -27,6 +28,20 @@ def menu():
         print('EasyGitTool-cil:',EasyGitTool_cil)
         time.sleep(1)
         menu()
+    elif choose_2 == '4':
+        while True:
+            print(Are_you_sure,'|yes or no|')
+            choose = input()
+            if choose == 'yes':
+                print('good bye')
+                time.sleep(1)
+                os._exit(0)
+            elif choose == 'no':
+                menu()
+            else:
+                print(paramete_error)
+                pass
+                time.sleep(1)
     else:
         menu()
 def update_loding():
@@ -34,7 +49,7 @@ def update_loding():
     print('1.fix bugs')
     print('2.update')
     print('3.delete')
-    print('4.exit')
+    print('4.go back')
     choose = input()
     if choose == '1':
         print(Please_enter_the_reasons_for_submission)
