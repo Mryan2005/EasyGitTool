@@ -75,7 +75,7 @@ def update():
     print(push_finish)
     os.remove(r'src\commit\commit.sh')
     time.sleep(3)
-    
+    update_loding()
 # ============================================ #
 EasyGitTool_cil = version.EasyGitTool_cil
 language = setting.language
