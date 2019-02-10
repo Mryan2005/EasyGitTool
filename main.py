@@ -24,7 +24,7 @@ def menu():
         update_loding()
     elif choose_2 == '2':
         print('')
-    elif choose == '3':
+    elif choose_2 == '3':
         print('EasyGitTool-cil:',EasyGitTool_cil)
         time.sleep(1)
         menu()
