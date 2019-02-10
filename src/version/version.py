@@ -1,1 +1,1 @@
-main = 'V1.0'
+EasyGitTool_cil = 'V1.0'

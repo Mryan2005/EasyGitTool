@@ -5,7 +5,27 @@ from src.commit import commit
 from src.version import version
 from src.settings import setting
 from src.InspectionCenter import InspectionCenter
-def main():
+def menu():
+    print(hi_I_am_noder)
+    print(Can_I_help_you)
+    print(can_you_tell_me_please_How_to_do_it)
+    print('1.push the codes to Web')
+    print('2.update')
+    print('3.version')
+    choose_2 = input()
+    if choose_2 == '1':
+        print(Caching_changes)
+        add = subprocess.Popen(r'src\add\add.sh',shell=True)
+        add.wait()
+        print(Caching_changes_finish)
+        update_loding()
+    elif choose_2 == '2':
+        print('')
+    elif choose == '3':
+        print('EasyGitTool-cil:',EasyGitTool_cil)
+    else:
+        menu()
+def update_loding():
     print(Please_select_the_type_of_changes_to_be_submitted)
     print('1.fix bugs')
     print('2.update')
@@ -24,12 +44,10 @@ def main():
         print(Please_enter_the_reasons_for_submission)
         commit.delete()
         update()
-    elif choose == 'version':
-        print('system-core:',system_core)
     elif choose == '4':
         os._exit(0)
     else:
-        main()
+        update_loding()
 # ============================================ #
 def update():
     print(in_commit)
@@ -43,9 +61,9 @@ def update():
     print(push_finish)
     os.remove(r'src\commit\commit.sh')
     time.sleep(3)
-    main()
+
 # ============================================ #
-system_core = version.main
+EasyGitTool_cil = version.EasyGitTool_cil
 language = setting.language
 if language == 'zh-cn':
     from src.language import zhcn
@@ -59,12 +77,10 @@ try:
     in_commit = zhcn.in_commit
     in_push = zhcn.in_push
     push_finish = zhcn.push_finish
+    hi_I_am_noder = zhcn.hi_I_am_noder
+    Can_I_help_you = zhcn.Can_I_help_you
+    can_you_tell_me_please_How_to_do_it = zhcn.can_you_tell_me_please_How_to_do_it
 except ImportError:
     pass
 # ============================================ #
-print(Caching_changes)
-add = subprocess.Popen(r'src\add\add.sh',shell=True)
-add.wait()
-print(Caching_changes_finish)
-main()
-version = 'V1.0'
+menu()
