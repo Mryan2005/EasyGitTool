@@ -39,6 +39,12 @@ def menu():
                 os._exit(0)
             elif choose == 'no':
                 menu()
+            elif choose == 'YES':
+                print('good bye')
+                time.sleep(1)
+                os._exit(0)
+            elif choose == 'NO':
+                menu()
             else:
                 print(paramete_error)
                 pass
@@ -71,6 +77,10 @@ def update_loding():
             if choose == 'yes':
                 menu()
             elif choose == 'no':
+                update_loding()
+            elif choose == 'YES':
+                menu()
+            elif choose == 'NO':
                 update_loding()
             else:
                 print(paramete_error)
