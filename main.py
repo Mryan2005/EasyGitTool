@@ -26,6 +26,7 @@ def menu():
         print('')
     elif choose_2 == '3':
         print('EasyGitTool-cil:',EasyGitTool_cil)
+        
         time.sleep(1)
         menu()
     elif choose_2 == '4':

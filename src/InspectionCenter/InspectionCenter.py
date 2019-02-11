@@ -4,5 +4,6 @@ def settings():
         pass
     else:
         setting = open(r'src\settings\setting.py', "w+")
-        setting.write("language = 'zh-cn'")
+        setting.write("language = 'zh-cn'\n")
+        #setting.write()
         setting.close()

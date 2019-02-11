@@ -1,9 +1,9 @@
-import os
-from src.InspectionCenter import InspectionCenter
-import time
-if os.path.exists(r'src\settings\setting.py'):
+try:
     from src.settings import setting
-else:
+except ImportError:
+    import os
+    from src.InspectionCenter import InspectionCenter
+    import time
     InspectionCenter.settings()
     time.sleep(1)
     from src.settings import setting
