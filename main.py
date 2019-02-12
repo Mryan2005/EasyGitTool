@@ -105,23 +105,23 @@ def update():
 # ============================================ #
 EasyGitTool_cil = version.EasyGitTool_cil
 language = setting.language
-if language == 'zh-cn':
-    from src.language import zhcn
+if language == 'zh-hans':
+    from src.language import zh_hans
 # ============================================ #
 try:
-    Caching_changes = zhcn.Caching_changes
-    Caching_changes_finish = zhcn.Caching_changes_finish
-    Please_select_the_type_of_changes_to_be_submitted = zhcn.Please_select_the_type_of_changes_to_be_submitted
-    Please_enter_the_reasons_for_submission = zhcn.Please_enter_the_reasons_for_submission
-    commit_finish = zhcn.commit_finish
-    in_commit = zhcn.in_commit
-    in_push = zhcn.in_push
-    push_finish = zhcn.push_finish
-    hi_I_am_noder = zhcn.hi_I_am_noder
-    Can_I_help_you = zhcn.Can_I_help_you
-    please_tell_me_How_to_do_it = zhcn.please_tell_me_How_to_do_it
-    Are_you_sure = zhcn.Are_you_sure
-    paramete_error = zhcn.paramete_error
+    Caching_changes = zh_hans.Caching_changes
+    Caching_changes_finish = zh_hans.Caching_changes_finish
+    Please_select_the_type_of_changes_to_be_submitted = zh_hans.Please_select_the_type_of_changes_to_be_submitted
+    Please_enter_the_reasons_for_submission = zh_hans.Please_enter_the_reasons_for_submission
+    commit_finish = zh_hans.commit_finish
+    in_commit = zh_hans.in_commit
+    in_push = zh_hans.in_push
+    push_finish = zh_hans.push_finish
+    hi_I_am_noder = zh_hans.hi_I_am_noder
+    Can_I_help_you = zh_hans.Can_I_help_you
+    please_tell_me_How_to_do_it = zh_hans.please_tell_me_How_to_do_it
+    Are_you_sure = zh_hans.Are_you_sure
+    paramete_error = zh_hans.paramete_error
 except ImportError:
     pass
 # ============================================ #
