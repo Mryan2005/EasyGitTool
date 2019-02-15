@@ -1,10 +1,11 @@
 def fix_bugs():
+    sh = open(r"src\commit\commit.sh", "w+")
+    sh.write('cd .. \n')
     reason = input()
     if reason == '':
         command = "git commit -m 'fix bugs"
     else:
         command = "git commit -m 'fix bugs: "
-    sh = open(r"src\commit\commit.sh", "w+")
     sh.write(command)
     sh.write(reason)
     sh.write("'")
