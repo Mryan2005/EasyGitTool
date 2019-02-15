@@ -1,4 +1,4 @@
-# EasyGit   [![Build Status](https://travis-ci.com/Mryan2005/EasyGitTool.svg?branch=master)](https://travis-ci.com/Mryan2005/EasyGitTool)
+# EasyGit   
 - ##### settings can 
 ## LICENSE
 [LICENSE](https://github.com/easygittool/EasyGitTool/blob/master/LICENSE)
