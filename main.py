@@ -1,3 +1,4 @@
+from cgi import test
 import os
 import subprocess
 from sys import argv
@@ -55,4 +56,8 @@ if argv[1] == 'acp':
     push()
 if argv[1] == 'push':
     push()
-    
+if argv[1] == 'test':
+    add()
+    time.sleep(0.5)
+    commit('test')
+    time.sleep(0.5)
