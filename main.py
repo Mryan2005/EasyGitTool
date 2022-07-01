@@ -62,3 +62,4 @@ if argv[1] == 'test':
     time.sleep(0.5)
     commit('test')
     time.sleep(0.5)
+    print('good')
