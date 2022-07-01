@@ -2,12 +2,12 @@ from setuptools import setup, find_packages
   
 setup(  
     name = "EasyGitTool",  
-    version = "1.1",  
+    version = "1.2",  
     long_description = "EasyGitTool for python",  
     license = "Apache License",  
   
     url = "https://easygittool.github.io",  
-    author = "Mr.yan",  
+    author = "Mryan2005",  
     author_email = "A2564011261@163.com",  
   
     packages = find_packages(),  

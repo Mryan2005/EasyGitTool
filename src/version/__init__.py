@@ -1,1 +1,0 @@
-from src.version import version
