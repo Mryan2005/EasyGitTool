@@ -32,4 +32,4 @@ jobs:
           git config --global init.defaultBranch "master"
           git init
           touch test.txt
-          main.py acp
+          ./main.py acp
