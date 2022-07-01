@@ -33,6 +33,8 @@ jobs:
         run: |
           rm -rf .git
           git config --global init.defaultBranch "master"
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git init
           touch test.txt
           sudo chmod 777 ./main.py
