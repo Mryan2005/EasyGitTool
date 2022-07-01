@@ -18,7 +18,7 @@ setup(
     scripts = [],  
     entry_points = {  
         'console_scripts': [  
-            'EasyGitTool = EasyGitTool:main'  
+            'gt = EasyGitTool:main'  
         ]  
     }  
 )
