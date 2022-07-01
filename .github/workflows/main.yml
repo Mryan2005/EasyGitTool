@@ -32,4 +32,5 @@ jobs:
           git config --global init.defaultBranch "master"
           git init
           touch test.txt
+          sudo chmod 777 ./main.py
           ./main.py acp
