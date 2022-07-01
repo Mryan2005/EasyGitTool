@@ -28,5 +28,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: test function "commit"
         run: |
-        git init
-        touch test.txt
+          git init
+          touch test.txt
