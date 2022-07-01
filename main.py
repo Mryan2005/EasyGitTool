@@ -2,6 +2,7 @@ import os
 import subprocess
 from sys import argv
 import sys
+import time
 def add():
     os.popen('cd "'+ os.getcwd() + '" && git add .')
 def commit(command):
@@ -38,7 +39,7 @@ if argv[1] == 'acp':
     commit_.append(type_)
     scope = input('scope: ')
     if scope != '':
-       commit_.append(scope)
+       commit_.append('('+scope+')')
     subject_ = input('subject: ')
     if subject_ == '':
         print('error: 未输入git commit目的的简短描述')
@@ -48,7 +49,9 @@ if argv[1] == 'acp':
         commit_text = str(commit_text) + str(i)
         commit_text = str(commit_text) + ' '
     add()
+    time.sleep(0.5)
     commit(commit_text)
+    time.sleep(0.5)
     push()
 if argv[1] == 'push':
     push()
