@@ -2,12 +2,12 @@ import os
 import subprocess
 from sys import argv
 import sys
+def add():
+    os.popen('cd "'+ os.getcwd() + '" && git add .')
 def commit(command):
-    a = os.popen('cd "'+ os.getcwd() + '" && git commit -am "' + str(command) + '"')
+    os.popen('cd "'+ os.getcwd() + '" && git commit -am "' + str(command) + '"')
 def push():
-    b = os.popen('cd "'+ os.getcwd() + '" && git push')
-def new_func(b):
-    print(b.read())
+    os.popen('cd "'+ os.getcwd() + '" && git push')
 if argv[1] == 'commit':
     commit_ = []
     commit_text = ''
@@ -28,7 +28,7 @@ if argv[1] == 'commit':
         commit_text = str(commit_text) + str(i)
         commit_text = str(commit_text) + ' '
     commit(commit_text)
-if argv[1] == 'cp':
+if argv[1] == 'acp':
     commit_ = []
     commit_text = ''
     type_ = input(' feat：新功能（feature） \n fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG \n fix：产生diff并自动修复此问题。适合于一次提交直接修复问题 \n to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix \n docs：文档（documentation） \n style：格式（不影响代码运行的变动） \n refactor：重构（即不是新增功能，也不是修改bug的代码变动） \n perf：优化相关，比如提升性能、体验 \n test：增加测试 \n chore：构建过程或辅助工具的变动 \n revert：回滚到上一个版本 \n merge：代码合并 \n sync：同步主线或分支的Bug \n type: ')
@@ -47,6 +47,7 @@ if argv[1] == 'cp':
     for i in commit_:
         commit_text = str(commit_text) + str(i)
         commit_text = str(commit_text) + ' '
+    add()
     commit(commit_text)
     push()
 if argv[1] == 'push':
