@@ -45,7 +45,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.9"]
-    if: github.event_name == 'tag'
+    if: ${{ github.event_name == 'tag' }}
     steps:
       - name: Install pypa/build
         run: >-
