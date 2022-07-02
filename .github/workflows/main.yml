@@ -40,6 +40,10 @@ jobs:
           sudo chmod 777 ./main.py
           ./main.py test
   build_and_publish: 
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
     if: github.event_name == 'tag'
     - name: Install pypa/build
       run: >-

@@ -5,12 +5,12 @@ import subprocess
 from sys import argv
 import sys
 import time
-os.popen('git config --global http.sslVerify "false"')
 def add():
     os.popen('cd "'+ os.getcwd() + '" && git add .')
 def commit(command):
     os.popen('cd "'+ os.getcwd() + '" && git commit -am "' + str(command) + '"')
 def push(additional_item):
+    os.popen('git config --global http.sslVerify "false"')
     os.popen('cd "'+ os.getcwd() + '" && git push ' + additional_item)
 def tag(version_):
     os.popen('cd "'+ os.getcwd() + '" && git tag ' + version_)
@@ -52,9 +52,9 @@ if argv[1] == 'acp':
     for i in commit_:
         commit_text = str(commit_text) + str(i)
     add()
-    time.sleep(0.5)
+    time.sleep(0.3)
     commit(commit_text)
-    time.sleep(0.5)
+    time.sleep(0.3)
     push('')
 if argv[1] == 'push':
     push('')
