@@ -37,5 +37,5 @@ jobs:
           git config --global user.name "Your Name"
           git init
           touch test.txt
-          sudo chmod 777 ./EasyGitTool/main.py
-          ./EasyGitTool/main.py test
+          sudo chmod 777 ./main.py
+          ./main.py test
