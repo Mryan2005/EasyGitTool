@@ -39,7 +39,7 @@ jobs:
           touch test.txt
           sudo chmod 777 ./main.py
           ./main.py test
-  build_and_publish: 
+  build-and-publish:
     runs-on: ubuntu-latest
     strategy:
       matrix:
