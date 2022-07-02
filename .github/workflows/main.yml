@@ -7,7 +7,8 @@ on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master", "new" ]
-    tags: ["v1.*"]
+    tags:
+      - 'v*'
   pull_request:
     branches: [ "master" ]
   # Allows you to run this workflow manually from the Actions tab
