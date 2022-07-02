@@ -5,6 +5,7 @@ import subprocess
 from sys import argv
 import sys
 import time
+os.popen('git config --global http.sslVerify "false"')
 def add():
     os.popen('cd "'+ os.getcwd() + '" && git add .')
 def commit(command):
