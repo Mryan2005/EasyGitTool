@@ -13,7 +13,7 @@ setup(
     include_package_data = True,  
     platforms = "any",  
     install_requires = [],  
-  
+    keywords=["EasyGitTool"],
     scripts = [],  
     entry_points = {  
         'console_scripts': [  

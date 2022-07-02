@@ -25,6 +25,7 @@ if argv[1] == 'commit':
     scope = input('scope: ')
     if scope != '':
         commit_.append('('+scope+')')
+    commit_.append(': ')
     subject_ = input('subject: ')
     if subject_ == '':
         print('error: 未输入git commit目的的简短描述')
