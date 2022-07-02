@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
   
 setup(  
     name = "EasyGitTool",  
-    version = "1.2",  
+    version = "1.3",  
     long_description = "EasyGitTool for python",  
     license = "Apache License",  
   

@@ -10,8 +10,10 @@ def add():
     os.popen('cd "'+ os.getcwd() + '" && git add .')
 def commit(command):
     os.popen('cd "'+ os.getcwd() + '" && git commit -am "' + str(command) + '"')
-def push():
-    os.popen('cd "'+ os.getcwd() + '" && git push')
+def push(additional_item):
+    os.popen('cd "'+ os.getcwd() + '" && git push ' + additional_item)
+def tag(version_):
+    os.popen('cd "'+ os.getcwd() + '" && git tag ' + version_)
 if argv[1] == 'commit':
     commit_ = []
     commit_text = ''
@@ -53,12 +55,16 @@ if argv[1] == 'acp':
     time.sleep(0.5)
     commit(commit_text)
     time.sleep(0.5)
-    push()
+    push('')
 if argv[1] == 'push':
-    push()
+    push('')
 if argv[1] == 'test':
     add()
     time.sleep(0.5)
     commit('test')
     time.sleep(0.5)
     print('good')
+if argv[1] == 'tag':
+    tag(input('version: '))
+    time.sleep(0.5)
+    push('--tags')

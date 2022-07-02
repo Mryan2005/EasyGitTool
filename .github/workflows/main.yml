@@ -39,7 +39,7 @@ jobs:
           touch test.txt
           sudo chmod 777 ./main.py
           ./main.py test
-  build and publish: 
+  build_and_publish: 
     if: github.event_name == 'tag'
     - name: Install pypa/build
       run: >-
