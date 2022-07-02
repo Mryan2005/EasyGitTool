@@ -30,6 +30,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: test function "commit"
         run: |
+          ls -a
           rm -rf .git
           git config --global init.defaultBranch "master"
           git config --global user.email "you@example.com"
