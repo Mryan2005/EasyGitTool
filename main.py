@@ -9,8 +9,11 @@ def add():
     os.popen('cd "'+ os.getcwd() + '" && git add .')
 def commit(command):
     os.popen('cd "'+ os.getcwd() + '" && git commit -am "' + str(command) + '"')
-def push():
-    os.popen('cd "'+ os.getcwd() + '" && git push')
+def push(additional_item):
+    os.popen('git config --global http.sslVerify "false"')
+    os.popen('cd "'+ os.getcwd() + '" && git push ' + additional_item)
+def tag(version_):
+    os.popen('cd "'+ os.getcwd() + '" && git tag ' + version_)
 if argv[1] == 'commit':
     commit_ = []
     commit_text = ''
@@ -21,7 +24,7 @@ if argv[1] == 'commit':
     commit_.append(type_)
     scope = input('scope: ')
     if scope != '':
-        commit.append(scope)
+        commit_.append('('+scope+')')
     subject_ = input('subject: ')
     if subject_ == '':
         print('error: 未输入git commit目的的简短描述')
@@ -29,7 +32,6 @@ if argv[1] == 'commit':
     commit_.append(subject_)
     for i in commit_:
         commit_text = str(commit_text) + str(i)
-        commit_text = str(commit_text) + ' '
     commit(commit_text)
 if argv[1] == 'acp':
     commit_ = []
@@ -41,7 +43,7 @@ if argv[1] == 'acp':
     commit_.append(type_)
     scope = input('scope: ')
     if scope != '':
-       commit_.append('('+scope+')')
+       commit_.append('('+scope+'): ')
     subject_ = input('subject: ')
     if subject_ == '':
         print('error: 未输入git commit目的的简短描述')
@@ -49,17 +51,20 @@ if argv[1] == 'acp':
     commit_.append(subject_)
     for i in commit_:
         commit_text = str(commit_text) + str(i)
-        commit_text = str(commit_text) + ' '
     add()
-    time.sleep(0.5)
+    time.sleep(0.3)
     commit(commit_text)
-    time.sleep(0.5)
-    push()
+    time.sleep(0.3)
+    push('')
 if argv[1] == 'push':
-    push()
+    push('')
 if argv[1] == 'test':
     add()
     time.sleep(0.5)
     commit('test')
     time.sleep(0.5)
     print('good')
+if argv[1] == 'tag':
+    tag(input('version: '))
+    time.sleep(0.5)
+    push('--tags')
