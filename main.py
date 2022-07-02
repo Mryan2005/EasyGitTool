@@ -21,7 +21,7 @@ if argv[1] == 'commit':
     commit_.append(type_)
     scope = input('scope: ')
     if scope != '':
-        commit.append(scope)
+        commit_.append('('+scope+')')
     subject_ = input('subject: ')
     if subject_ == '':
         print('error: 未输入git commit目的的简短描述')
@@ -29,7 +29,6 @@ if argv[1] == 'commit':
     commit_.append(subject_)
     for i in commit_:
         commit_text = str(commit_text) + str(i)
-        commit_text = str(commit_text) + ' '
     commit(commit_text)
 if argv[1] == 'acp':
     commit_ = []
@@ -41,7 +40,7 @@ if argv[1] == 'acp':
     commit_.append(type_)
     scope = input('scope: ')
     if scope != '':
-       commit_.append('('+scope+')')
+       commit_.append('('+scope+'): ')
     subject_ = input('subject: ')
     if subject_ == '':
         print('error: 未输入git commit目的的简短描述')
@@ -49,7 +48,6 @@ if argv[1] == 'acp':
     commit_.append(subject_)
     for i in commit_:
         commit_text = str(commit_text) + str(i)
-        commit_text = str(commit_text) + ' '
     add()
     time.sleep(0.5)
     commit(commit_text)
