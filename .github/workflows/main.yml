@@ -39,7 +39,14 @@ jobs:
           touch test.txt
           sudo chmod 777 ./EasyGitTool/main.py
           ./EasyGitTool/main.py test
-      - name: test setup.py
+      - name: Run setup.py
         run: |
-          python setup.py install
-          gt commit test
+          python setup.py bdist_wheel
+          rm -r build
+          rm -r *.egg-info
+          mv dist/*.whl whl/
+          rm -r dist
+      - uses: actions/upload-artifact@master
+          with:
+          name: EasyGitTool
+          path: ${{ github.workspace }}\*.whl
