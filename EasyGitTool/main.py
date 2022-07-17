@@ -46,7 +46,7 @@ def main():
         commit_ = []
         commit_text = ''
         type_ = input(
-            'feat：新功能（feature） \n fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG \n fix：产生diff并自动修复此问题。适合于一次提交直接修复问题 \n '
+            ' feat：新功能（feature） \n fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG \n fix：产生diff并自动修复此问题。适合于一次提交直接修复问题 \n '
             'to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix \n docs：文档（documentation） \n style：格式（不影响代码运行的变动） \n '
             'refactor：重构（即不是新增功能，也不是修改bug的代码变动） \n perf：优化相关，比如提升性能、体验 \n test：增加测试 \n chore：构建过程或辅助工具的变动 \n '
             'revert：回滚到上一个版本 \n merge：代码合并 \n sync：同步主线或分支的Bug \ntype: ')
@@ -57,6 +57,8 @@ def main():
         scope = input('scope: ')
         if scope != '':
             commit_.append('(' + scope + ')')
+        if scope == '':
+            commit_.append(': ')
         commit_.append(': ')
         subject_ = input('subject: ')
         if subject_ == '':
@@ -70,7 +72,7 @@ def main():
         commit_ = []
         commit_text = ''
         type_ = input(
-            'feat：新功能（feature） \n fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG \n fix：产生diff并自动修复此问题。适合于一次提交直接修复问题 \n '
+            ' feat：新功能（feature） \n fix/to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG \n fix：产生diff并自动修复此问题。适合于一次提交直接修复问题 \n '
             'to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix \n docs：文档（documentation） \n style：格式（不影响代码运行的变动） \n '
             'refactor：重构（即不是新增功能，也不是修改bug的代码变动） \n perf：优化相关，比如提升性能、体验 \n test：增加测试 \n chore：构建过程或辅助工具的变动 \n '
             'revert：回滚到上一个版本 \n merge：代码合并 \n sync：同步主线或分支的Bug \n type: ')
@@ -81,6 +83,8 @@ def main():
         scope = input('scope: ')
         if scope != '':
             commit_.append('(' + scope + '): ')
+        if scope == '':
+            commit_.append(': ')
         subject_ = input('subject: ')
         if subject_ == '':
             print('error: 未输入git commit目的的简短描述')
