@@ -1,16 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: ordinary CI
+name: tag CI
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "master" branch
   push:
     branches: [ "master", "new" ]
-  pull_request:
-    branches: [ "master" ]
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +27,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: test function "commit"
         run: |
-          ls -a
           rm -rf .git
           git config --global init.defaultBranch "master"
           git config --global user.email "you@example.com"
@@ -39,7 +35,19 @@ jobs:
           touch test.txt
           sudo chmod 777 ./EasyGitTool/main.py
           ./EasyGitTool/main.py test
-      - name: test setup.py"
-          run: |
+  build-and-publish:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9"]
+    steps:
+      - name: Install pypa/build
+        run: >-
+          - name: Build and publish
             python setup.py install
-            gt commit test
+            twine upload dist/*
+      - name: Build a binary wheel and a source tarball
+        run: >-
+          python ./setup.py sdist bdist_wheel
+      - name: Publish distribution 📦 to Test PyPI
+    needs: test
