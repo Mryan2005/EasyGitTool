@@ -2,7 +2,6 @@
 from cgi import test
 import os
 import subprocess
-from multiprocessing import Process
 from sys import argv
 import sys
 import time
@@ -100,7 +99,7 @@ def main():
         push('')
     if argv[1] == 'push':
         if argv[2] == 'branch':
-            push('--set-upstream origin ' + argv[3])
+            push('--set-upstream origin '+argv[3])
         else:
             push('')
     if argv[1] == 'test':
@@ -115,22 +114,3 @@ def main():
         push('--tags')
     if argv[1] == 'add':
         add()
-'''
-#    if argv[1] == '':
-#        if argv[2] == 'cr':
-            print('Real name填GitHub Username \n'
-                  'Email address填GitHub email address private')
-            print('当你完成gpg key创建之后，请输入"gt gpg deploy"')
-            os.popen('gpg --gen-key')
-            os.popen('gpg --list-keys --keyid-format SHORT')
-        if argv[2] == 'd':
-            key = input("请输入pub  rsa2048/D609DBC4 中的pub  rsaxxx/后的内容")
-            os.popen('gpg --send-key ' + key)
-            os.popen('gpg --armor --export ' + key)
-            print('请你将其添加到代码GitHub的gpg key中就可以了')
-            os.popen('start https://github.com/settings/keys')
-            print('正在配置你的Git')
-            os.popen('git config --global user.signingkey ' + key)
-            os.popen('git config commit.gpgsign true')
-            os.popen('git config --global commit.gpgsign true')
-'''
