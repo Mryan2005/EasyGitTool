@@ -98,7 +98,10 @@ def main():
         time.sleep(0.3)
         push('')
     if argv[1] == 'push':
-        push('')
+        if argv[2] == 'branch':
+            push('--set-upstream origin '+argv[3])
+        else:
+            push('')
     if argv[1] == 'test':
         add()
         time.sleep(0.5)
