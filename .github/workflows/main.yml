@@ -39,7 +39,7 @@ jobs:
           touch test.txt
           sudo chmod 777 ./EasyGitTool/main.py
           ./EasyGitTool/main.py test
-      - name: test setup.py"
-          run: |
-            python setup.py install
-            gt commit test
+      - name: test setup.py
+        run: |
+          python setup.py install
+          gt commit test
