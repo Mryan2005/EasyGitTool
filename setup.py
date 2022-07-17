@@ -4,7 +4,7 @@ setup(
     name = "EasyGitTool",  
     version = "1.4",  
     long_description = "EasyGitTool for python",  
-    license = "Apache License", 
+    license = "Mozilla Public License Version 2.0",
     url = "https://easygittool.github.io",  
     author = "Mryan2005",  
     author_email = "A2564011261@163.com",  
