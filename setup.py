@@ -1,8 +1,10 @@
-from setuptools import setup, find_packages  
-  
-setup(  
+from setuptools import setup, find_packages
+
+import ver
+
+setup(
     name = "EasyGitTool",  
-    version = "V0.12-dev",
+    version = ver.ver,
     long_description = "EasyGitTool for python",  
     license = "Mozilla Public License Version 2.0",
     url = "https://easygittool.github.io",  
