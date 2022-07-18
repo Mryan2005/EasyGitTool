@@ -57,7 +57,7 @@ jobs:
       - name: Create Release and Upload Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: V1.0
+          tag_name: V0.${{ github.run_id }}.dev
           name: V0.${{ github.run_id }}.dev
           body: TODO New Release.
           draft: false
