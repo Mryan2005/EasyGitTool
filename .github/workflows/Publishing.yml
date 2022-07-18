@@ -41,13 +41,35 @@ jobs:
       matrix:
         python-version: ["3.9"]
     steps:
-      - name: Install pypa/build
-        run: >-
-          - name: Build and publish
-            python setup.py install
-            twine upload dist/*
-      - name: Build a binary wheel and a source tarball
-        run: >-
-          python ./setup.py sdist bdist_wheel
-      - name: Publish distribution 📦 to Test PyPI
+      - name: Run setup.py
+          run: |
+            python setup.py bdist_wheel
+            rm -r build
+            rm -r *.egg-info
+            mv dist/*.whl whl/
+            rm -r dist
+      - uses: actions/upload-artifact@master
+        with:
+        name: EasyGitTool
+        path: ${{ github.workspace }}\*.whl
+      - name: Create Release
+          id: create_release
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+          with:
+            tag_name: ${{ github.run_number }}.${{ github.run_id }}.weekly
+            release_name: Release ${{ github.run_number }}.${{ github.run_id }}.weekly
+            draft: false
+            prerelease: false
+            - name: Upload Release Asset
+              id: upload-release-asset
+              uses: actions/upload-release-asset@v1
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+              with:
+                upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps
+                asset_path: ${{ github.workspace }}/whl/*
+                asset_name: mindmap.zip
+                asset_content_type: application/whl
     needs: test
