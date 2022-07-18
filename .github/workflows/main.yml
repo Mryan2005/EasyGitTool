@@ -39,14 +39,14 @@ jobs:
           touch test.txt
           sudo chmod 777 ./EasyGitTool/main.py
           ./EasyGitTool/main.py test
-      - name: Run setup.py
+      - name: Install dependencies
         run: |
-          python setup.py bdist_wheel
-          rm -r build
-          rm -r *.egg-info
-          mv dist/*.whl whl/
-          rm -r dist
-      - uses: actions/upload-artifact@master
-          with:
-          name: EasyGitTool
-          path: ${{ github.workspace }}\*.whl
+          python -m pip install --upgrade pip
+          pip install setuptools wheel twine
+      - name: Build and publish
+        env:
+          TWINE_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          TWINE_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        run: |
+          python setup.py sdist bdist_wheel
+          twine upload dist/*
