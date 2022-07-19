@@ -109,6 +109,7 @@ jobs:
       - name: bulid exefile
         if: ${{ github.ref == 'refs/heads/master' }}
         run: |
+          docker pull cdrx/pyinstaller-windows
           docker run -v $GITHUB_WORKSPACE:/src cdrx/pyinstaller-windows:latest 'pyinstaller -F --clean -y --dist ./ --workpath /tmp ./EasyGitTool/main.py'
           rename main.exe EasyGitTool-dev.exe ./main.exe
       - name: Create Release and Upload Release Asset
