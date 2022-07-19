@@ -112,7 +112,7 @@ jobs:
           docker pull cdrx/pyinstaller-windows
           docker run -v $GITHUB_WORKSPACE:/src cdrx/pyinstaller-windows:latest 'pyinstaller -F --clean -y --dist ./ --workpath /tmp ./EasyGitTool/main.py'
           sudo apt install rename
-          rename 's/\main.exe/\EasyGitTool-dev.exe' *
+          mv ./main.exe ./EasyGitTool-dev.exe
       - name: Create Release and Upload Release Asset
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: softprops/action-gh-release@v1
