@@ -68,6 +68,21 @@ jobs:
           python setup.py sdist bdist_wheel
           twine upload dist/*
     needs: test
+  test_pypi_deploy:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ "3.9" ]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - name: test install
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          pip install EasyGitTool
+    needs: Publishing-pypi-dev
   Publishing-GitHub_Release-dev:
     runs-on: ubuntu-latest
     strategy:
@@ -91,6 +106,11 @@ jobs:
       - name: Zip the Build
         if: ${{ github.ref == 'refs/heads/master' }}
         run: zip -r dist.zip ./dist/* ./LICENSE
+      - name: bulid exefile
+        if: ${{ github.ref == 'refs/heads/master' }}
+        run: |
+          docker run -v $GITHUB_WORKSPACE:/src cdrx/pyinstaller-windows:latest 'pyinstaller -F --clean -y --dist ./ --workpath /tmp ./EasyGitTool/main.py'
+          rename main.exe EasyGitTool-dev.exe ./main.exe
       - name: Create Release and Upload Release Asset
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: softprops/action-gh-release@v1
@@ -102,5 +122,5 @@ jobs:
           prerelease: true
           files: |
             dist.zip
-            LICENSE
+            EasyGitTool-dev.exe
     needs: test
