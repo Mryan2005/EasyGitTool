@@ -1,11 +1,8 @@
 #!/usr/bin/python
-from cgi import test
 import os
-import subprocess
-from multiprocessing import Process
-from sys import argv
 import sys
 import time
+from sys import argv
 
 
 def getnoncommand():
