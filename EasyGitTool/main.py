@@ -55,7 +55,7 @@ def main():
         scope = input('scope: ')
         if scope != '':
             commit_.append('(' + scope + ')')
-        if scope == '':
+        elif scope == '':
             commit_.append(': ')
         commit_.append(': ')
         subject_ = input('subject: ')
@@ -63,6 +63,9 @@ def main():
             print('error: 未输入git commit目的的简短描述')
             sys.exit()
         commit_.append(subject_)
+        task = input('task: ')
+        if task != '':
+            commit_.append(' '+task)
         for i in commit_:
             commit_text = str(commit_text) + str(i)
         commit(commit_text)
@@ -88,6 +91,9 @@ def main():
             print('error: 未输入git commit目的的简短描述')
             sys.exit()
         commit_.append(subject_)
+        for i in commit_:
+            commit_text = str(commit_text) + str(i)
+        commit(commit_text)
         for i in commit_:
             commit_text = str(commit_text) + str(i)
         add()
