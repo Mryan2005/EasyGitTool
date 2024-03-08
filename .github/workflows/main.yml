@@ -115,7 +115,7 @@ jobs:
           mv ./main.exe ./EasyGitTool-dev.exe
       - name: Create Release and Upload Release Asset
         if: ${{ github.ref == 'refs/heads/main' }}
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: V0.${{ github.run_id }}.dev
           name: V0.${{ github.run_id }}.dev
